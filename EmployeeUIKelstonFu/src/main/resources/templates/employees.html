@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show all employees</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <p>Show all employees</p>
+    
+    
+    <div class = "container">
+    	<div class = "container">
+    		<div class = "row">
+    			<h1>List Employees</h1>
+    		</div>
+    		
+    		
+    	<table class = "table table-striped table-bordered">
+    		<thead class = "table-dark">
+    			<tr>
+    				<th> Employee ID</th>
+    				<th> Employee First Name</th>
+    				<th> Employee Last Name</th>
+    				<th> Employee Salary</th>
+    				<th> Employee state</th>
+    				<th> Employee country</th>
+    				<th> Update</th>
+    			</tr>
+    			</thead>
+    			
+    			<tbody>
+    			<tr th:each = "employee: ${employees}">
+    					<td th:text = "${employee.id}"></td>
+    					<td th:text = "${employee.firstName}"></td>
+    					<td th:text = "${employee.lastName}"></td>
+    					<td th:text = "${employee.salary}"></td>
+    					<td th:text = "${employee.state}"></td>
+    					<td th:text = "${employee.country}"></td>
+						<td><a th:href = "@{/employees/update/{id} (id=${employee.id})}"	
+    							class = "btn btn-primary">Update</a>
+						
+    			</tr>
+    			</tbody>
+    	</table>
+    	</div>
+	</div>
+</body>
+</html>
